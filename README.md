@@ -16,4 +16,8 @@ need to set the appropriate environment variables for these apps: ```SPARK_HOME`
 3. Once the webserver is up and running, navigate to ```http://localhost:8080/test``` and watch the result of a quick job.
 
 
-Hopefully this will open up new doors for implementing different use-cases for Spark.
+## Other thoughts
+
+Perhaps the Spark documentation could better help users understand what's really going on behind the scenes with the classpaths of the various components involved (executor, master, driver, etc...). In this example, a SparkContext is instantiated by Spring's ApplicationContext at the deployment of the web application. This negotiates some resources ahead of time so that jobs can be run quickly without the overhead of having to negotiate those resources and fire up JVMs each time a job needs to be run. If this is not desired, it would be easy enough to have several different SparkContexts that run within the various different web application scopes (request, session, etc...). 
+
+Hopefully this will open up new doors for implementing different real-time query and data manipulation use-cases for Spark.
