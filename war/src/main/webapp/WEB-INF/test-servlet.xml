@@ -9,6 +9,5 @@
 
   <context:annotation-config/>
   <context:component-scan base-package="cjn.controllers" />
-
 </beans>
 

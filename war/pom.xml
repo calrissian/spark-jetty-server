@@ -23,6 +23,14 @@ limitations under the License.
     <version>0.0.1-SNAPSHOT</version>
   </parent>
 
+  <description>
+    This project provides the controllers. It's expected that the jetty classpath will be wired up during deployment so both the spark
+    dependencies and web service dependencies for this project have been set to provided. This is important as there are classes in
+    both of these jars that try to use the URI returned by clazz.getResource() in order to locate their jars to send to the executors.
+    The spark libraries will all live in SPARK_HOME so that one is simple. If the web services were being deployed to an actual jetty
+    instance, it would be necessary to stick the web services jar somewhere that it can be wired into the jetty classpath manually.
+  </description>
+
   <properties>
     <spark.home>${env.SPARK_HOME}</spark.home>
     <assembly.jar>${spark.home}/lib/spark-assembly-1.1.0-hadoop2.4.0.jar</assembly.jar>
@@ -89,10 +97,6 @@ limitations under the License.
             <extraClasspath>${assembly.jar},${project.basedir}/../services/target/services-${project.version}.jar</extraClasspath>
           </webAppConfig>
           <systemProperties>
-            <systemProperty>
-              <name>spark.assembly.jar</name>
-              <value>${assembly.jar}</value>
-            </systemProperty>
             <systemProperty>
               <name>spark.home</name>
               <value>${spark.home}</value>
