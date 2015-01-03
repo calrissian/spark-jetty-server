@@ -16,7 +16,7 @@ object SparkContextFactory {
   def newSparkContext: SparkContext = {
 
     /**
-     * Just for simplicity, the spark home and the spark yarn uber-jar are coming in through system properties
+     * Just for simplicity, the spark home is coming in through a system property
      */
     val sparkHome = sys.props.get("spark.home").getOrElse("")
 
