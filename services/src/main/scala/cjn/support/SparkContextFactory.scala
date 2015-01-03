@@ -23,6 +23,8 @@ object SparkContextFactory {
     val sparkConf = new SparkConf()
       .setJars(Array(SparkContext.jarOfClass(this.getClass).get))
       .setSparkHome(sparkHome)
+      .set("spark.serializer", "org.apache.spark.serializer.KryoSerializer")
+      .set("spark.scheduler.mode", "FAIR")
 
     new SparkContext("yarn-client", "TestSparkJettyServer", sparkConf)
   }

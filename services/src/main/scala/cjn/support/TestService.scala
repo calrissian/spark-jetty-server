@@ -8,5 +8,8 @@ import org.apache.spark.SparkContext
  */
 class TestService(sparkContext: SparkContext) {
 
-  def test: String = sparkContext.parallelize(0 to 500000).count.toString
+  /**
+   * A simple count of items in a sequence which is able to be processed in parallel
+   */
+  def test: String = sparkContext.parallelize(0 to 500000, 25).count.toString
 }
