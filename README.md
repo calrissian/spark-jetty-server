@@ -5,7 +5,7 @@ This proved to be non-trivial as an understanding of how the Spark classpath is 
 far, this has only been tested using the Jetty maven plugin, but it should translate fairly easily to an actual jetty instance.
 
 This project depends on YARN being installed and configured. Spark needs to be installed and configured as well. You will also
-need to set the appropriate environment variables for these apps: SPARK_HOME and HADOOP_HOME (or HADOOP_PREFIX).
+need to set the appropriate environment variables for these apps: ```SPARK_HOME``` and ```HADOOP_HOME``` (or ```HADOOP_PREFIX```).
 
 ## Building and running
 
