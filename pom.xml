@@ -24,7 +24,9 @@ limitations under the License.
   </parent>
 
   <properties>
+    <assembly.jar>${spark.home}/lib/spark-assembly-1.1.0-hadoop2.4.0.jar</assembly.jar>
     <java.version>1.7</java.version>
+    <spark.home>${env.SPARK_HOME}</spark.home>
   </properties>
 
   <groupId>cjnolet</groupId>
@@ -125,6 +127,19 @@ limitations under the License.
           <groupId>org.mortbay.jetty</groupId>
           <artifactId>maven-jetty-plugin</artifactId>
           <version>6.1.10</version>
+          <configuration>
+            <webAppConfig>
+              <parentLoaderPriority>true</parentLoaderPriority>
+              <contextPath>/test</contextPath>
+              <extraClasspath>${assembly.jar},${project.basedir}/../services/target/services-${project.version}.jar</extraClasspath>
+            </webAppConfig>
+            <systemProperties>
+              <systemProperty>
+                <name>spark.home</name>
+                <value>${spark.home}</value>
+              </systemProperty>
+            </systemProperties>
+          </configuration>
         </plugin>
       </plugins>
     </pluginManagement>
