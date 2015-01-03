@@ -19,12 +19,11 @@ limitations under the License.
 
   <parent>
     <groupId>cjnolet</groupId>
-    <artifactId>scala-fun</artifactId>
+    <artifactId>spark-jetty-server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
 
   <properties>
-    <spark.home>NOT_SET</spark.home>
     <java.version>1.7</java.version>
   </properties>
 
