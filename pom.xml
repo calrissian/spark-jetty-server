@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-Copyright (C) 2013 The Calrissian Authors
+Copyright (C) 2014 Corey J. Nolet
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -40,6 +40,28 @@ limitations under the License.
     <module>war</module>
     <module>services</module>
   </modules>
+
+  <url>http://github.com/cjnolet/spark-jetty-server</url>
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+      <comments>A business-friendly OSS license</comments>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <name>Corey Nolet</name>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:git:git@github.com:cjnolet/spark-jetty-server.git</connection>
+    <developerConnection>scm:git:git@github.com:cjnolet/spark-jetty-server.git</developerConnection>
+    <tag>HEAD</tag>
+    <url>git@github.com:cjnolet/spark-jetty-server.git</url>
+  </scm>
+
 
   <dependencyManagement>
     <dependencies>
