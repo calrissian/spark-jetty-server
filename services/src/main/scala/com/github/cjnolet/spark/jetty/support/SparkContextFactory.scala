@@ -30,14 +30,8 @@ object SparkContextFactory {
    */
   def newSparkContext: SparkContext = {
 
-    /**
-     * Just for simplicity, the spark home is coming in through a system property
-     */
-    val sparkHome = sys.props.get("spark.home").getOrElse("")
-
     val sparkConf = new SparkConf()
       .setJars(Array(SparkContext.jarOfClass(this.getClass).get))
-      .setSparkHome(sparkHome)
       .set("spark.serializer", "org.apache.spark.serializer.KryoSerializer")
       .set("spark.scheduler.mode", "FAIR")
 
