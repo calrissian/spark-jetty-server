@@ -25,6 +25,7 @@ limitations under the License.
 
   <properties>
     <spark.home>NOT_SET</spark.home>
+    <assembly.jar>${spark.home}/lib/spark-assembly-1.1.0-hadoop2.4.0.jar</assembly.jar>
     <java.version>1.7</java.version>
   </properties>
 
@@ -85,8 +86,14 @@ limitations under the License.
           <webAppConfig>
             <parentLoaderPriority>true</parentLoaderPriority>
             <contextPath>/test</contextPath>
-            <extraClasspath>${spark.home}/lib/spark-assembly-1.1.0-hadoop2.4.0.jar,/workspace/scala-spark-test/services/target/services-0.0.1-SNAPSHOT.jar</extraClasspath>
+            <extraClasspath>${assembly.jar},${project.basedir}/../services/target/services-${project.version}.jar</extraClasspath>
           </webAppConfig>
+          <systemProperties>
+            <systemProperty>
+              <name>spark.assembly.jar</name>
+              <value>${assembly.jar}</value>
+            </systemProperty>
+          </systemProperties>
         </configuration>
       </plugin>
       <plugin>

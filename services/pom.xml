@@ -31,6 +31,9 @@ limitations under the License.
   <artifactId>services</artifactId>
   <packaging>jar</packaging>
 
+  <description>Web services layer. This is purposefully left to a separate module so that it can be added to the spark context and
+              propagated out to the executors. Though it may not be necessary if all spark interaction is done through anonymous
+              functions, having the jar out there should allow the executors to know about any custom classes being used.</description>
 
   <dependencies>
 

@@ -1,6 +1,6 @@
 package cjn.controllers;
 
-import cjn.support.Service;
+import cjn.support.TestService;
 import org.apache.spark.SparkContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,18 +11,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller(value= "/test")
 public class TestController {
 
-  private final SparkContext sparkContext;
+  private final TestService testService;
 
   @Autowired
   public TestController(SparkContext sparkContext) {
-
-    System.out.println("INIT CONTROLLER!");
-    this.sparkContext = sparkContext;
+    this.testService = new TestService(sparkContext);
   }
 
   @RequestMapping(value = "/", method = RequestMethod.GET)
   @ResponseBody
   public String test() {
-    return Service.test(sparkContext);
+    return testService.test();
   }
 }

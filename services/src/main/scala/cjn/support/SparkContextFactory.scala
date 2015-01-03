@@ -5,16 +5,15 @@ import org.apache.spark.{SparkContext, SparkConf}
 object SparkContextFactory {
 
 
-  def newSparkContext(): SparkContext = {
+  def newSparkContext: SparkContext = {
+
+    val sparkAssemblyJar = sys.props.get("spark.assembly.jar").getOrElse("")
+
     val sparkConf = new SparkConf().setJars(Array(
       SparkContext.jarOfClass(this.getClass).get,
-      "/Library/Spark/spark-current/lib/spark-assembly-1.1.0-hadoop2.4.0.jar"
+      sparkAssemblyJar
     ))
 
-    val sc = new SparkContext("yarn-client", "AppName", sparkConf)
-
-    println(sc.parallelize(0 to 50000).count)
-
-    sc
+    new SparkContext("yarn-client", "TestSparkWebApp", sparkConf)
   }
 }
