@@ -8,4 +8,9 @@
                            http://www.springframework.org/schema/context/spring-context.xsd">
 
   <bean id="sparkContext" class="cjn.support.SparkContextFactory" factory-method="newSparkContext"/>
+
+  <bean id="sparkSqlContext" class="org.apache.spark.sql.SQLContext">
+    <constructor-arg ref="sparkContext"/>
+  </bean>
+
 </beans>
