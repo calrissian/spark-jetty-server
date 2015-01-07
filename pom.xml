@@ -35,6 +35,8 @@ limitations under the License.
   <artifactId>spark-jetty-server</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
+  
+  <description>An example application demonstrating how to embed a long running SparkContext within a Java servlet container</description>
 
   <modules>
     <module>war</module>
