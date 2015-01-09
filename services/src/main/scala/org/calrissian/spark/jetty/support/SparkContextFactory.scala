@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.cjnolet.spark.jetty.support
+package org.calrissian.spark.jetty.support
 
 import org.apache.spark.{SparkContext, SparkConf}
 

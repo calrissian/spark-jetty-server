@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.cjnolet.spark.jetty.controllers;
+package org.calrissian.spark.jetty.controllers;
 
-import com.github.cjnolet.spark.jetty.service.TestService;
+import org.calrissian.spark.jetty.service.TestService;
 import org.apache.spark.SparkContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

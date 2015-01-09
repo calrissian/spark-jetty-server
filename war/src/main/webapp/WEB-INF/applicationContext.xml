@@ -22,7 +22,7 @@ limitations under the License.
                            http://www.springframework.org/schema/context
                            http://www.springframework.org/schema/context/spring-context.xsd">
 
-  <bean id="sparkContext" class="com.github.cjnolet.spark.jetty.support.SparkContextFactory" factory-method="newSparkContext"/>
+  <bean id="sparkContext" class="org.calrissian.spark.jetty.support.SparkContextFactory" factory-method="newSparkContext"/>
 
   <bean id="sparkSqlContext" class="org.apache.spark.sql.SQLContext">
     <constructor-arg ref="sparkContext"/>

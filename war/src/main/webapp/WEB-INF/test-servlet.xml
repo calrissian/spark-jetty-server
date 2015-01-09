@@ -23,6 +23,6 @@ limitations under the License.
                            http://www.springframework.org/schema/context/spring-context.xsd">
 
   <context:annotation-config/>
-  <context:component-scan base-package="com.github.cjnolet.spark.jetty.controllers" />
+  <context:component-scan base-package="org.calrissian.spark.jetty.controllers" />
 </beans>
 
