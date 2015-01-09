@@ -18,7 +18,7 @@ limitations under the License.
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>cjnolet</groupId>
+    <groupId>org.calrissian.spark</groupId>
     <artifactId>spark-jetty-server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>

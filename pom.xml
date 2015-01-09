@@ -31,7 +31,7 @@ limitations under the License.
     <spark.ui.port>4040</spark.ui.port>
   </properties>
 
-  <groupId>cjnolet</groupId>
+  <groupId>org.calrissian.spark</groupId>
   <artifactId>spark-jetty-server</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
