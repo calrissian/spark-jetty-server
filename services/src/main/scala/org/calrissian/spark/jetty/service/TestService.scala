@@ -27,6 +27,31 @@ import scala.Some
  * A stateless service class that interacts with a spark context.
  */
 
+
+class TestService(sparkContext: SparkContext) extends Serializable {
+
+  import TestService._
+
+
+  def testSchemaInference = {
+
+    val accumulator = sparkContext.accumulator(Set[(String,DataType)]())
+
+    sparkContext.parallelize(createTestMaps).map(it => accumulator.add(allKeysWithValueTypes(it))).foreach(println)
+
+    val json = StructType(accumulator.value.map(it => StructField(it._1, it._2)).toSeq).json
+
+    DataType.fromJson(json)
+  }
+
+  /**
+   * A simple count of items in a sequence which is able to be processed in parallel
+   */
+  def test: String = sparkContext.parallelize(0 to 500000, 25).count.toString
+
+
+}
+
 object TestService {
 
 
@@ -169,26 +194,3 @@ object TestService {
   }
 }
 
-class TestService(sparkContext: SparkContext) extends Serializable {
-
-  import TestService._
-
-
-  def testSchemaInference = {
-
-    val accumulator = sparkContext.accumulator(Set[(String,DataType)]())
-
-    sparkContext.parallelize(createTestMaps).map(it => accumulator.add(allKeysWithValueTypes(it))).foreach(println)
-
-    val json = StructType(accumulator.value.map(it => StructField(it._1, it._2)).toSeq).json
-
-    DataType.fromJson(json)
-  }
-
-  /**
-   * A simple count of items in a sequence which is able to be processed in parallel
-   */
-  def test: String = sparkContext.parallelize(0 to 500000, 25).count.toString
-
-
-}
