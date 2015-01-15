@@ -24,16 +24,16 @@ limitations under the License.
   </parent>
 
   <properties>
-    <assembly.jar>${spark.home}/lib/spark-assembly-1.1.0-hadoop2.4.0.jar</assembly.jar>
+    <assembly.jar>${spark.home}/lib/spark-assembly-1.2.0-hadoop2.4.0.jar</assembly.jar>
     <java.version>1.7</java.version>
     <spark.home>${env.SPARK_HOME}</spark.home>
     <spark.pool.config>${project.basedir}/src/main/resources/defaultPoolConfig.xml</spark.pool.config>
     <spark.ui.port>4040</spark.ui.port>
   </properties>
 
+  <version>0.0.1-SNAPSHOT</version>
   <groupId>org.calrissian.spark</groupId>
   <artifactId>spark-jetty-server</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   
   <description>An example application demonstrating how to embed a long running SparkContext within a Java servlet container</description>
@@ -70,13 +70,13 @@ limitations under the License.
       <dependency>
         <groupId>org.apache.spark</groupId>
         <artifactId>spark-core_2.10</artifactId>
-        <version>1.1.0</version>
+        <version>1.2.0</version>
         <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>org.apache.spark</groupId>
         <artifactId>spark-sql_2.10</artifactId>
-        <version>1.1.0</version>
+        <version>1.2.0</version>
         <scope>provided</scope>
       </dependency>
       <dependency>

@@ -32,9 +32,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class TestController {
 
   private final TestService testService;
+  private final SparkContext sparkContext;
 
   @Autowired
   public TestController(SparkContext sparkContext) {
+    this.sparkContext = sparkContext;
     this.testService = new TestService(sparkContext);
   }
 
@@ -43,4 +45,12 @@ public class TestController {
   public String test() {
     return testService.test();
   }
+
+
+    @RequestMapping(value = "/schema", method = RequestMethod.GET)
+    @ResponseBody
+    public String testSchema() {
+        return testService.testSchemaInference().prettyJson();
+    }
+
 }
